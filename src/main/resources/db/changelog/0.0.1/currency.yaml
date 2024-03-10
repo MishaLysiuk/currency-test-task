@@ -1,0 +1,20 @@
+databaseChangeLog:
+    -   changeSet:
+            id: currency
+            author: Misha
+            changes:
+                -   createTable:
+                        tableName: currency
+                        columns:
+                            -   column:
+                                    name: id
+                                    type: bigint
+                                    autoIncrement: true
+                                    constraints:
+                                        primaryKey: true
+                                        nullable: false
+                            -   column:
+                                    name: currency_type_id
+                                    type: BIGINT
+                                    constraints:
+                                        nullable: false

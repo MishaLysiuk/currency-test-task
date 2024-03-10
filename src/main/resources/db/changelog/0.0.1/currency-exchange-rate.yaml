@@ -1,0 +1,32 @@
+databaseChangeLog:
+    -   changeSet:
+            id: currency-exchange-rate
+            author: Misha
+            changes:
+                -   createTable:
+                        tableName: currency_exchange_rate
+                        columns:
+                            -   column:
+                                    name: id
+                                    type: bigint
+                                    autoIncrement: true
+                                    constraints:
+                                        primaryKey: true
+                                        nullable: false
+
+                            -   column:
+                                    name: currency_source_id
+                                    type: BIGINT
+                                    constraints:
+                                        nullable: false
+                            -   column:
+                                    name: currency_target_id
+                                    type: BIGINT
+                                    constraints:
+                                        nullable: false
+                            -   column:
+                                    name: rate
+                                    type: double
+                                    constraints:
+                                        nullable: false
+

@@ -1,0 +1,10 @@
+version: '3'
+services:
+    postgres:
+        image: postgres:latest
+        environment:
+            POSTGRES_DB: ${CURRENCY_DATABASE_NAME}
+            POSTGRES_USER: ${CURRENCY_DATABASE_USERNAME}
+            POSTGRES_PASSWORD: ${CURRENCY_DATABASE_PASSWORD}
+        ports:
+            - '${CURRENCY_DATABASE_PORT}:${CURRENCY_DATABASE_PORT}'
