@@ -1,0 +1,26 @@
+server:
+    error:
+        include-message: always
+    port: 8080
+spring:
+    datasource:
+        url: jdbc:postgresql://${CURRENCY_DATABASE_HOST}:${CURRENCY_DATABASE_PORT}/${CURRENCY_DATABASE_NAME}
+        driver-class-name: org.postgresql.Driver
+        username: ${CURRENCY_DATABASE_USERNAME}
+        password: ${CURRENCY_DATABASE_PASSWORD}
+    jpa:
+        hibernate:
+            ddl-auto: none
+        properties:
+            hibernate:
+                dialect: org.hibernate.dialect.PostgreSQLDialect
+                format_sql: true
+                show_sql: true
+    liquibase:
+        enabled: true
+    main:
+        web-application-type: servlet
+    docker:
+        compose:
+            file: ./docker/postgres.yml
+            enabled: false
