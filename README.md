@@ -1,4 +1,4 @@
-[# Project Currency Test Task
+# Project Currency Test Task
 
 ## Installation
 
@@ -74,4 +74,3 @@
     }
    }
    ```
-]()
