@@ -16,24 +16,3 @@ databaseChangeLog:
                             referencedTableName: currency
                             referencedColumnNames: id
                             constraintName: fk_currency_exchange_rate_target
-
-#                -   addForeignKeyConstraint:
-#                        baseTableName: currency
-#                        baseColumnNames: currency_type_id
-#                        constraintName: fk_currency_exchange_rate_source
-#                        referencedTableName: currency_type
-#                        referencedColumnNames: id
-#
-#                -   addForeignKeyConstraint:
-#                        baseTableName: currency_exchange_rate
-#                        baseColumnNames: currency_source_id
-#                        constraintName: fk_currency_currency_type
-#                        referencedTableName: currency_type
-#                        referencedColumnNames: id
-#
-#                -   addForeignKeyConstraint:
-#                        baseTableName: currency_exchange_rate
-#                        baseColumnNames: currency_target_id
-#                        constraintName: fk_currency_exchange_rate_target
-#                        referencedTableName: currency_type
-#                        referencedColumnNames: id

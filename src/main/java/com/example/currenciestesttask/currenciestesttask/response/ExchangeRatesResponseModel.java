@@ -10,7 +10,7 @@ import java.util.Map;
 @Getter
 @Setter
 @ToString
-public class CurrencyResponseModel {
+public class ExchangeRatesResponseModel {
 
     @JsonProperty("success")
     private Boolean success;

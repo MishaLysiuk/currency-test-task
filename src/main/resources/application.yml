@@ -4,7 +4,7 @@ server:
     port: 8080
 spring:
     datasource:
-        url: jdbc:postgresql://${CURRENCY_DATABASE_HOST}:${CURRENCY_DATABASE_PORT}/${CURRENCY_DATABASE_NAME}
+        url: jdbc:postgresql://${CURRENCY_DATABASE_HOST}:5433/${CURRENCY_DATABASE_NAME}
         driver-class-name: org.postgresql.Driver
         username: ${CURRENCY_DATABASE_USERNAME}
         password: ${CURRENCY_DATABASE_PASSWORD}
@@ -22,5 +22,5 @@ spring:
         web-application-type: servlet
     docker:
         compose:
-            file: ./docker/postgres.yml
+            file: ./docker/docker-compose.yml
             enabled: false

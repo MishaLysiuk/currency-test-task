@@ -1,5 +1,9 @@
 package com.example.currenciestesttask.currenciestesttask.contoller;
 
+import com.example.currenciestesttask.currenciestesttask.dto.CurrencyDto;
+import com.example.currenciestesttask.currenciestesttask.dto.CurrencyExchangeRateDto;
+import com.example.currenciestesttask.currenciestesttask.service.CurrencyExchangeRateService;
+import com.example.currenciestesttask.currenciestesttask.service.CurrencyService;
 import com.example.currenciestesttask.currenciestesttask.service.impl.CurrencyServiceImpl;
 import com.example.currenciestesttask.currenciestesttask.entity.Currency;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -20,24 +24,31 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/currencies")
 public class CurrencyController {
-    private final CurrencyServiceImpl currencyService;
+
+    private final CurrencyService currencyService;
+    private final CurrencyExchangeRateService exchangeRateService;
     private final ObjectMapper objectMapper;
 
     @Autowired
-    public CurrencyController(CurrencyServiceImpl currencyService, ObjectMapper objectMapper) {
+    public CurrencyController(
+        CurrencyService currencyService,
+        ObjectMapper objectMapper,
+        CurrencyExchangeRateService exchangeRateService
+    ) {
         this.currencyService = currencyService;
         this.objectMapper = objectMapper;
+        this.exchangeRateService = exchangeRateService;
     }
 
     @GetMapping
-    public List<Currency> getAllCurrencies() {
+    public List<CurrencyDto> getAllCurrencies() {
         return currencyService.getCurrencies();
     }
 
-//    @GetMapping("/{code}/exchange-rates")
-//    public Double getExchangeRate(@PathVariable String code) {
-//        return currencyService.getExchangeRate(code);
-//    }
+    @GetMapping("/{code}/exchange-rates")
+    public CurrencyExchangeRateDto getExchangeRate(@PathVariable String code) {
+        return exchangeRateService.getCurrencyWithRates(code.toUpperCase());
+    }
 
     @PostMapping(value = "/add")
     public ResponseEntity<String> addCurrency(@RequestBody() String json) {

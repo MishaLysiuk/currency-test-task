@@ -15,23 +15,27 @@ import lombok.Setter;
 
 @Entity
 @Table(name = "currency_exchange_rate")
-@Getter
-@Setter
 public class CurrencyExchangeRate {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
+    @Getter
     private Long id;
 
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "currency_source_id")
-    private CurrencyType currencySource;
+    @Getter
+    @Setter
+    private Currency currencySource;
 
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "currency_target_id")
-    private CurrencyType currencyTarget;
+    @Getter
+    @Setter
+    private Currency currencyTarget;
 
     @Column(name = "rate")
+    @Getter
+    @Setter
     private Double rate;
-
 }
