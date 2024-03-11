@@ -73,7 +73,6 @@ fabric.properties
 # Editor-based Rest Client
 .idea/httpRequests
 
-HELP.md
 .gradle
 build/
 !gradle/wrapper/gradle-wrapper.jar

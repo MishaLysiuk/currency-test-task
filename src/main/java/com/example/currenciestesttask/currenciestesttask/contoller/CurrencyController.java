@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/currencies")
+@RequestMapping("/api/currency")
 public class CurrencyController {
 
     private final CurrencyService currencyService;
@@ -50,7 +50,7 @@ public class CurrencyController {
         return exchangeRateService.getCurrencyWithRates(code.toUpperCase());
     }
 
-    @PostMapping(value = "/add")
+    @PostMapping
     public ResponseEntity<String> addCurrency(@RequestBody() String json) {
         try {
             String code = objectMapper.readTree(json).get("currencyCode").asText().toUpperCase();
